@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Flexbox Pricing Table</title>
+    <title>Flexbox Pricing Table mine solution</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,14 +14,45 @@
       }
       .pricing-plan{
         background-color: #f2f2f2;
+        padding: 25px;
+        flex:1;
+        max-width: 400px;
       }
       .plan-button{
         background-color: #ff6600;
+        border:none;
+        color:white;
+        padding: 2%;
+        border-radius: 5px;
       }
-      
-
+      .pricing-container{
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; 
+      }
+      .plan-title{
+        font-size:x-large;
+        font-weight: bold;
+      }
+      .plan-price{
+        font-size:xxx-large;
+        font-weight: bold;
+      }
+      div > div{
+        text-align: center;
+        padding: 5px;
+      }
+      ul{
+        list-style: none;
+      }
       /* Hint: What can you do with a media query and flexbox? */
       @media (max-width: 1250px) {
+      .pricing-container{
+        flex-direction: column;
+        height: 100%;
+      }
       }
     </style>
   </head>
