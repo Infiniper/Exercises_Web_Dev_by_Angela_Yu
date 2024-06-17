@@ -31,6 +31,15 @@
         justify-content: center;
         align-items: center;
         height: 100vh; 
+        
+        /* Without height: 100vh;: */
+/* The container's height will only be as tall as its content,
+ so it might not fill the viewport height.
+The vertical centering might not work as intended, 
+especially if the content height is less than the viewport height.
+The layout may not look as balanced, with the content potentially
+ appearing at the top of the page rather than centered. */
+ 
       }
       .plan-title{
         font-size:x-large;
