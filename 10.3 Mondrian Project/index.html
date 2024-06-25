@@ -19,11 +19,70 @@
     HINT: Remember you can't change the properties of grid lines.
     But grid lines are transparent!
     */
+
+    .grid-container{
+      display: grid;
+      grid-template: 414px 9px 326px / 320px 9px 419px;
+    }
+    .white{
+      background-color: #F0F1EC;
+      /* background-color: cyan; */
+    }
+    .flexy{
+      display: flex;
+      flex-direction: column;
+    }
+    .gap{
+      background-color: #000;
+    }
+    .sub-grid{
+      display: grid;
+      grid-template: 295px 9px 22px / 198px 9px 153px;
+    }
+    .flexy-row{
+      display: flex;
+      flex-direction: row;
+    }
+    #row-2{
+      grid-area: 2 /1 / 3 /4;
+    }
+    body{
+      justify-content: center;
+      align-content: center;
+    }
   </style>
 </head>
 
-<body>
+<body class="flexy-row">
   <!-- Write your HTML here -->
+   <div class="grid-container">
+    <div style="background-color: red;"></div>
+    <div class="gap"></div>
+    <div class="white"></div>
+    <div class="gap"></div>
+    <div class="gap"></div>
+    <div class="gap"></div>
+    <div class="white flexy">
+      <div class="white" style="flex-basis: 294px;"></div>
+      <div class="gap" style="flex-basis: 9px;"></div>
+      <!-- <div class="white" style="flex-basis: 22px;"></div> -->
+    </div>
+    <div class="gap"></div>
+    <div class="white flexy-row">
+      <div class="sub-grid" style="flex-basis: 360px;">
+        <div class="gap" id="row-2"></div>
+        <div style="background-color: #F9D01E; grid-area: 3 /1/ 4/ 2;"></div>
+        <div class="gap" style="grid-area: 3 /2/ 4/ 3 ;"></div>
+        <div style="background-color: #232629; grid-area: 3 /3 / 4/ 4;"></div>
+      </div>
+      <div class="gap" style="flex-basis: 9px;"></div>
+      <div class="flexy" style="flex-basis: 50px;">
+        <div style="flex-basis: 130px; background-color:#004592;"></div>
+        <div class="gap" style="flex-basis: 10px;"></div>
+        <!-- 1 more div -->
+      </div>
+    </div>      
+  </div>
 </body>
 
 </html>
