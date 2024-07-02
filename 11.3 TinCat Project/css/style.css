@@ -1,7 +1,7 @@
 .gradient-background {
-  background: linear-gradient(300deg,#3e496e, #c4c1ba, #61311c);
+  background: linear-gradient(300deg, #00bfff, #ff4c68, #ef8172);
   background-size: 180% 180%;
-  animation: gradient-animation 18s ease infinite;   
+  animation: gradient-animation 13s ease infinite;   
 }
 
 @keyframes gradient-animation {
@@ -25,4 +25,25 @@
 .profile-img {
   height: 100px;
   border-radius: 50%;
+}
+
+.feature-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: .75rem;
+}
+
+.bg-body-secondary {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-secondary-bg-rgb), var(--bs-bg-opacity)) !important;
+}
+#magzines{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+#magzines > img{
+  height: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
