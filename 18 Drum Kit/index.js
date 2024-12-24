@@ -1,0 +1,3 @@
+document.querySelector("drum").addEventListener("click", function(){
+// Do something...
+};) 
