@@ -17,12 +17,32 @@ body {
 
 }
 
+#start-btn{
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+#start-btn:hover {
+  background-color: cyan;
+  transform: scale(1.1);
+}
+#start-btn:active {
+  transform: scale(0.9);
+}
 
 .btn {
-  margin: 25px;
+  margin: 20px;
   display: inline-block;
-  height: 150px;
-  width: 150px;
+  height: 125px;
+  width: 125px;
   border: 10px solid black;
   border-radius: 20%;
 }

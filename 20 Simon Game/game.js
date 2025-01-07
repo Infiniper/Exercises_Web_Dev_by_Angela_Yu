@@ -1,12 +1,9 @@
-// Improvement needed: before playing audio, need to interact with the document.
-
 var level = 0;
 var isStarted = false;
-$(document).keydown(function () {
+$("#start-btn").click(function () {
     if (!isStarted) {
         isStarted = true;
-        nextSequence();
-        game();
+        setTimeout(nextSequence,500);
     }
 });
 
@@ -27,49 +24,44 @@ function nextSequence() {
     audio.play();
 }
 
-function game() {
-    var gameOver = false;
-    while (!gameOver) {
-        for (var i = 0; i < level; i++) {
-            $(".btn").on("click", function () {
-                var userChosenColour = this.id;
-                userClickedPattern.push(userChosenColour);
-                // console.log(userChosenColour + " got clicked");
-                // console.log(userClickedPattern);
-                playSound(userChosenColour);
-            });
+var index = 0;
+$(".btn").on("click", function () {
+    var userChosenColour = this.id;
+    userClickedPattern.push(userChosenColour);
+    // console.log(userChosenColour + " got clicked");
+    // console.log(userClickedPattern);
+    playSound(userChosenColour);
+
+    if (checkAnswer(index)) {
+        index++;
+        if (index === level) {
+            index = 0;
+            userClickedPattern=[];
+            setTimeout(nextSequence,1500);
         }
-        gameOver = isGameOver(level);
-        nextSequence();
+    } else {
+        //gameover
+        index = 0;
+        userClickedPattern=[];
+        gamePattern=[];
+        $("h1").text("Game Over. Press the Start Game button to start again.");
+        level=0;
+        isStarted = false;
     }
-}
+});
 
-
-
-function isGameOver(currentLevel) {
-    for (var i = 0; i < currentLevel; i++) {
-        if (userClickedPattern[i] != gamePattern[i]) {
-            $("h1").text("Game Over");
-            return true;
-        }
+function checkAnswer(index) {
+    if (userClickedPattern[index] === gamePattern[index]) {
+        return true;
+    } else {
+        return false;
     }
-    userClickedPattern = [];
-    return false;
 }
 
 function playSound(name) {
     var audio = new Audio("sounds/" + name + ".mp3");
     audio.play();
 }
-
-
-
-
-
-
-
-
-
 
 
 // To add animation on the buttons  
@@ -83,7 +75,7 @@ function animateButton(e) {
     }, 700);
 }
 
-var bubblyButtons = document.querySelectorAll(".bubbly-button-green, .bubbly-button-red, .bubbly-button-yellow, .bubbly-button-blue");
+var bubblyButtons = document.querySelectorAll(".btn");
 for (var i = 0; i < bubblyButtons.length; i++) {
     bubblyButtons[i].addEventListener('click', animateButton, false);
 }
