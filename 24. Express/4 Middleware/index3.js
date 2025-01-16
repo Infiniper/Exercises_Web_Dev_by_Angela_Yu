@@ -1,5 +1,11 @@
 import express from "express";
 
+function logger(req,res,next){
+  console.log("Request method: ", req.method);
+  console.log("Request url: ", req.url);
+  next();
+}
+
 const app = express();
 const port = 3000;
 
